@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+body{
+    background-color: #c1baba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    margin: 40px;
+    color: rgb(43, 41, 41);
+    font-size: 40px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+}
+
+.grafico{
+    position: relative; /* Define o contêiner como base para o posicionamento absoluto */
+    width: 600px;
+    height: 600px;
+    background-color: lightgrey;
+}
+
+
+.item {
+    border: solid 2px rgb(255, 255, 255);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div_tabela{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.tabela{
+    margin-top: -20px;
+    margin-left: 50px;
+    width: 500px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+th, td {
+    color: black;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    font-size: 16px;
+}
+tfoot {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.nomes{
+    text-align: left;
+}
+
+button{
+    margin: 0 auto;
+    width: 300px;
+    padding: 10px 5px;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+}
+button:hover{
+    background-color: #276929;
+}
+
+a{
+    text-decoration: none;
+}

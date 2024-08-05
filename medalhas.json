@@ -1,0 +1,52 @@
+[
+    {
+        "nome": "Brasil",
+        "medalhas_2020": "21",
+        "medalhas_2016": "19"
+    },
+    {
+        "nome": "Estados Unidos",
+        "medalhas_2020": "113",
+        "medalhas_2016": "121"
+    },
+    {
+        "nome": "China",
+        "medalhas_2020": "88",
+        "medalhas_2016": "70"
+    },
+    {
+        "nome": "Jap\u00e3o",
+        "medalhas_2020": "58",
+        "medalhas_2016": "41"
+    },
+    {
+        "nome": "Gr\u00e3-Bretanha",
+        "medalhas_2020": "65",
+        "medalhas_2016": "67"
+    },
+    {
+        "nome": "R\u00fassia",
+        "medalhas_2020": "71",
+        "medalhas_2016": "56"
+    },
+    {
+        "nome": "Austr\u00e1lia",
+        "medalhas_2020": "46",
+        "medalhas_2016": "29"
+    },
+    {
+        "nome": "Alemanha",
+        "medalhas_2020": "37",
+        "medalhas_2016": "42"
+    },
+    {
+        "nome": "Fran\u00e7a",
+        "medalhas_2020": "33",
+        "medalhas_2016": "42"
+    },
+    {
+        "nome": "It\u00e1lia",
+        "medalhas_2020": "40",
+        "medalhas_2016": "28"
+    }
+]

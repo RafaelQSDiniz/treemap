@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Editar Medalhas</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            width: 600px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+
+        }
+        thead {
+            background-color: #4CAF50;
+            color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            font-size: 16px;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .edit {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button{
+            width: 200px;
+            margin: 20px;
+        }
+        input{
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <table id="medalhasTable">
+        <thead>
+            <tr>
+                <th>País</th>
+                <th>Medalhas 2020</th>
+                <th>Medalhas 2016</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div style="display: flex;">
+        <button onclick="salvar()">Salvar</button>
+        <button style="background-color: white; color: #4CAF50;" onclick="redirecionar()">Voltar</button>    
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('medalhas.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#medalhasTable tbody");
+                    data.forEach((pais, index) => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${pais.nome}</td>
+                            <td><input type="number" value="${pais.medalhas_2020}" class="edit" data-index="${index}" data-field="medalhas_2020"></td>
+                            <td><input type="number" value="${pais.medalhas_2016}" class="edit" data-index="${index}" data-field="medalhas_2016"></td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar o JSON:', error));
+        });
+
+        function salvar() {
+            const inputs = document.querySelectorAll(".edit");
+            const data = [];
+            inputs.forEach(input => {
+                const index = input.getAttribute('data-index');
+                const field = input.getAttribute('data-field');
+                const value = input.value;
+                if (!data[index]) {
+                    data[index] = { nome: document.querySelector(`#medalhasTable tbody tr:nth-child(${parseInt(index) + 1}) td:first-child`).textContent };
+                }
+                data[index][field] = value;
+            });
+
+            fetch('salvar.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => alert(result))
+            .catch(error => console.error('Erro ao salvar o JSON:', error));
+        }
+    </script>
+    <script>
+            function redirecionar() {
+                window.location.href = 'index.php';
+            }
+    </script>
+</body>
+</html>
